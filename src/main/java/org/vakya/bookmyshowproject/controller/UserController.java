@@ -28,6 +28,7 @@ public class UserController {
             responseDto.setResponseStatus(ResponseStatus.FAILURE);
 
         }
+        System.out.println("controller");
         return responseDto;
     }
 
