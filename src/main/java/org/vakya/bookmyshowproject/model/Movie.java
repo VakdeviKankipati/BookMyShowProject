@@ -18,4 +18,6 @@ public class Movie extends BaseModel{
     @ManyToMany
     @JoinTable(name = "actor_join")
     private List<Actor> actors; // Movie - Actor => M:M
+
+    private String description;
 }

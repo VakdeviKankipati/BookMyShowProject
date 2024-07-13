@@ -16,10 +16,10 @@ public class PriceCalculatorService {
         this.showSeatTypeRepository=showSeatTypeRepository;
     }
 
-    public int calculatePrice(List<ShowSeat> showSeats, Show show) {
+    public double calculatePrice(List<ShowSeat> showSeats, Show show) {
         List<ShowSeatType> showSeatTypes = showSeatTypeRepository.findAllByShow(show);
 
-        int amount = 0;
+        double amount = 0;
 
         for (ShowSeat showSeat : showSeats){
             for (ShowSeatType showSeatType : showSeatTypes){
