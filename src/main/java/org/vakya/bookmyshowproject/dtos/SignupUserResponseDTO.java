@@ -7,7 +7,10 @@ import org.vakya.bookmyshowproject.model.User;
 @Getter
 @Setter
 public class SignupUserResponseDTO {
-    private User user;
     private ResponseStatus responseStatus;
+    private String name;
+    private String email;
+    private long userId;
+
 }
 

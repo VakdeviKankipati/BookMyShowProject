@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import org.vakya.bookmyshowproject.model.Screen;
 
 @Repository
-public interface ScreenRepository extends JpaRepository<Screen, Integer> {
+public interface ScreenRepository extends JpaRepository<Screen, Long> {
 
 }

@@ -5,10 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.vakya.bookmyshowproject.controller.RatingsController;
 import org.vakya.bookmyshowproject.controller.TicketController;
-import org.vakya.bookmyshowproject.dtos.BookTicketRequestDTO;
-import org.vakya.bookmyshowproject.dtos.BookTicketResponseDTO;
-import org.vakya.bookmyshowproject.dtos.ResponseStatus;
+import org.vakya.bookmyshowproject.dtos.*;
 import org.vakya.bookmyshowproject.model.*;
 import org.vakya.bookmyshowproject.repositories.*;
 
@@ -37,8 +36,20 @@ class BookMyShowProjectApplicationTests {
 	private ShowRepository showRepository;
 
 	@Autowired
+	private MovieRepository movieRepository;
+
+	@Autowired
 	private SeatsRepository seatRepository;
+
+	@Autowired
+	private RatingsController ratingsController;
+
+	@Autowired
+	private RatingRepository ratingRepository;
+
+	private Movie movie;
 	private User user;
+	private User user1, user2;
 	private List<ShowSeat> showSeats;
 	@Test
 	void contextLoads() {
@@ -112,6 +123,8 @@ class BookMyShowProjectApplicationTests {
 		showSeat4 = showSeatRepository.save(showSeat4);
 
 		showSeats = List.of(showSeat1, showSeat2, showSeat3, showSeat4);
+
+
 	}
 	@AfterEach
 	public void cleanUp(){
@@ -119,6 +132,9 @@ class BookMyShowProjectApplicationTests {
 		showSeatRepository.deleteAll();
 		showRepository.deleteAll();
 		seatRepository.deleteAll();
+		userRepository.deleteAll();
+		ratingRepository.deleteAll();
+		movieRepository.deleteAll();
 		userRepository.deleteAll();
 	}
 
@@ -142,5 +158,7 @@ class BookMyShowProjectApplicationTests {
 		assertEquals(ShowSeatStatus.AVAILABLE, showSeats.get(2).getShowSeatStatus(), "Seat status should be AVAILABLE");
 		assertEquals(ShowSeatStatus.AVAILABLE, showSeats.get(3).getShowSeatStatus(), "Seat status should be AVAILABLE");
 	}
+
+
 
 }

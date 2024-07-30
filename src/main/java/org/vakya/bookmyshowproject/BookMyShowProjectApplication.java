@@ -9,10 +9,10 @@ import org.vakya.bookmyshowproject.dtos.SignUpUserRequestDTO;
 import org.vakya.bookmyshowproject.dtos.SignupUserResponseDTO;
 
 @SpringBootApplication
-public class BookMyShowProjectApplication implements CommandLineRunner {
+public class BookMyShowProjectApplication /*implements CommandLineRunner*/ {
 
-	@Autowired
-	private UserController userController;
+	/*@Autowired
+	private UserController userController;*/
 
 	public static void main(String[] args) {
 
@@ -21,7 +21,7 @@ public class BookMyShowProjectApplication implements CommandLineRunner {
 
 
 
-	@Override
+	/*@Override
 	public void run(String... args) throws Exception {
 		SignUpUserRequestDTO requestDto = new SignUpUserRequestDTO();
 		requestDto.setName("vakya");
@@ -30,5 +30,5 @@ public class BookMyShowProjectApplication implements CommandLineRunner {
 
 		SignupUserResponseDTO responseDto = userController.signUp(requestDto);
 
-	}
+	}*/
 }

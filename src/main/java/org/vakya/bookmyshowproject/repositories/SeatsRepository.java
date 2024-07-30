@@ -7,9 +7,9 @@ import org.vakya.bookmyshowproject.model.Seat;
 import java.util.List;
 
 @Repository
-public interface SeatsRepository extends JpaRepository<Seat, Integer> {
-    @Override
+public interface SeatsRepository extends JpaRepository<Seat, Long> {
+    /*@Override
     List<Seat> findAllById(Iterable<Integer> integers);
 
-    List<Seat> findAllByScreenId(int screenId);
+    List<Seat> findAllByScreenId(int screenId);*/
 }

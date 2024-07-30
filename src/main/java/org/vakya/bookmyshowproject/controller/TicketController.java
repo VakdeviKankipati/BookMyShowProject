@@ -2,13 +2,18 @@ package org.vakya.bookmyshowproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.vakya.bookmyshowproject.dtos.BookTicketRequestDTO;
 import org.vakya.bookmyshowproject.dtos.BookTicketResponseDTO;
 import org.vakya.bookmyshowproject.dtos.ResponseStatus;
 import org.vakya.bookmyshowproject.model.Ticket;
 import org.vakya.bookmyshowproject.services.TicketService;
 
-@Controller
+@RestController
+@RequestMapping("/tickets")
 public class TicketController {
     private TicketService ticketService;
 
@@ -17,7 +22,8 @@ public class TicketController {
         this.ticketService=ticketService;
     }
 
-    public BookTicketResponseDTO bookTicket(BookTicketRequestDTO requestDTO){
+    @PostMapping("/book")
+    public BookTicketResponseDTO bookTicket(@RequestBody BookTicketRequestDTO requestDTO){
         BookTicketResponseDTO responseDTO = new BookTicketResponseDTO();
         try{
             Ticket ticket = ticketService.bookTicket(
